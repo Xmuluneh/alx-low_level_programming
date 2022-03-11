@@ -1,12 +1,12 @@
 #include<stdio.h>
 /**
  *main - Entry point
- *My hello printf task
- *Return:return 1 aftwer program excute
+ *My hello,printf task
+ *Return:return 1 after program execution
 */
 int main(void)
 {
-printf("with proper grammer , but the outcome is apiece of art,\n"
+printf("with proper grammer ,but the output is apiece of art.\n");
 return (0);
 }
  
