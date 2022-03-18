@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- *  _isupper - evalue it letter is uppercase .
+ * _isupper - evalue it letter is uppercase .
  *  @c: print int 
  *  Return: Always 0.
  */
