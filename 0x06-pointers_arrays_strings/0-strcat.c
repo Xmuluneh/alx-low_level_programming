@@ -1,5 +1,4 @@
 #include "main.h"
-#include <string.h>
 /**
  * _stecat -Concatenates teo string together
  * @dest: First string, second string is appended to it
