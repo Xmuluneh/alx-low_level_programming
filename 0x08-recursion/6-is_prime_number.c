@@ -1,6 +1,5 @@
 #include "main.h"
-int _is_prime(int n);
-
+#include <stdio.h>
 /**
  * is_prime_number - checks if the input integer is a prime number.
  * @n: the integer to be checked
@@ -9,17 +8,12 @@ int _is_prime(int n);
  */
 int is_prime_number(int n)
 {
-	int r = _is_prime(n);
-	if (r==1)
-	{
-	return (1);
-	}
-	else
-	{
-	return (0);
-	}
-	
-}
+	if (n == 2)
+		return (1);
+	else if (n < 2)
+		return (0);
+	return (_is_prime(n, 2));
+}#include <stdio.h>
 
 /**
  * _is_prime - tests for prime
@@ -28,20 +22,12 @@ int is_prime_number(int n)
  *
  * Return: 1 if prime, otherwise 0
  */
-int _is_prime(int n)
+int _is_prime(int n, int i)
 {
-	if (n<2)
-		return (0);
-		int i;
-		for (i=2;i<=n/2;i++)
-		{
-		  if(n %i ==0)
-		  {
-		  return 0;
-		  }
-		}
-	
-		
-	return (1);
+	if (i >= n / 2)
+		return (1);
+	if (n % i)
+		return (_is_prime(n, i + 1));
+	return (0);
 }
 
