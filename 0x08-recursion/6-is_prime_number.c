@@ -13,7 +13,7 @@ int is_prime_number(int n)
 	else if (n < 2)
 		return (0);
 	return (_is_prime(n, 2));
-}#include <stdio.h>
+}
 
 /**
  * _is_prime - tests for prime
