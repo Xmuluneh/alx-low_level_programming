@@ -1,43 +1,47 @@
-include "main.h"
+#include "main.h"
+int _is_prime(int n);
+
 /**
- * is_prime_number - returns the length of a string
- * @n: constant value to finde the natural square root
- * @x: variable that help to find primes number
- * Return: _help
+ * is_prime_number - checks if the input integer is a prime number.
+ * @n: the integer to be checked
  *
+ * Return: 1 if prime, otherwise 0
  */
-
-int primo(int n, int x);
-
-
 int is_prime_number(int n)
 {
-	if (n <= 1)
+	int r = _is_prime(n);
+	if (r==1)
 	{
-		return (0);
+	return (1);
 	}
 	else
 	{
-		return (primo(n, 1));
+	return (0);
 	}
+	
 }
-/**
- * primo - function that helps to find the prime number
- * @n: constant value to finde the natural square root
- * @x: variable that help to find primes numbers
- * Return: _help
- *
- */
-int primo(int n, int x)
-{
-	int prueba;
 
-	prueba = n % x;
-	if (x >= n)
-		return (1);
-	else if (prueba == 0 && x != 1)
+/**
+ * _is_prime - tests for prime
+ * @n: number to test
+ * @i: the counter
+ *
+ * Return: 1 if prime, otherwise 0
+ */
+int _is_prime(int n)
+{
+	if (n<2)
 		return (0);
-	else
-		return (primo(n, x + 1));
+		int i;
+		for (i=2;i<=n/2;i++)
+		{
+		  if(n %i ==0)
+		  {
+		  return 0;
+		  }
+		}
+	
+		
+	return (1);
 }
 
