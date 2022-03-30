@@ -1,4 +1,4 @@
-de "main.h"
+#include "main.h"
 /**
  *wildcmp - compare two string
  *@s1: is the first string
@@ -21,4 +21,3 @@ int wildcmp(char *s1, char *s2)
 	}
 	return (0);
 }
-
