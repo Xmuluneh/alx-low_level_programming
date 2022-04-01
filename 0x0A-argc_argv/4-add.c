@@ -1,41 +1,32 @@
-#include "main.h"
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <ctype.h>
 /**
- *main - a main afunction to add positive numbers,
- *@argc: counts arguments
- *@argv: build a vector array of arguments
- *Return: returns success 0.
+ * main - print the addition of two positive numbers.
+ * @argc: argument count or size of arguments.
+ * @argv: argument vector
+ *
+ * Return: 1 for less of 2 arguments or nondigit numbers, 0 success
  */
-
 int main(int argc, char **argv)
 {
-int a = 0, i, sum = 0;
-if (argc > 1)
-{
-for (i = 1; i < argc; i++)
-{
-a = 0;
-a += atoi(argv[i]);
+	int sum, i, j;
 
-if (a == 0)
-{
-printf("Error\n");
-return (1);
+	sum = 0;
+	for (i = 1; i < argc; i++)
+	{
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (!isdigit(argv[i][j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+		sum += atoi(argv[i]);
+	}
 
+	printf("%d\n", sum);
+	return (0);
 }
-else
-{
-sum += atoi(argv[i]);
-}
-}
-if (a != 0)
-printf("%d\n", sum);
-}
-else
-{
-printf("0\n");
-}
-return (0);
-}
+
