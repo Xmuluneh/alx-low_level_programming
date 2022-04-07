@@ -1,64 +1,46 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
- * length - check the code for Holberton School students.
- *@s: imput 1
- * Return: Always something.
- */
-
-int length(char *s)
-{
-	int z;
-
-	for (z = 0; s[z] != '\0';)
-	{
-		z++;
-	}
-	return (z);
-}
-
-
-/**
- * string_nconcat - check the code for Holberton School students.
- *@s1: imput 1
- *@s2: imput 2
- *@n: size of imput comparation
- * Return: Always 0.
+ * string_nconcat - allocates a block of memory to store concatenated strings.
+ * @s1: the first string
+ * @s2: the second string
+ * @n: the number of s2 to concatenate to s1
+ *
+ * Return: a pointer to allocated memory block.
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i = 0, j = 0, m = 0, t = 0;
-	char *p;
+	char *s;
+	unsigned int i = 0, j = 0, len1 = 0, len2 = 0;
 
-	j = length(s2);
-	i = length(s1);
-	if (s1 == NULL)
-	{
-		s1 = "";
-	}
-	if (s2 == NULL)
-	{
-		s2 = "";
-	}
-	j = length(s2);
-	i = length(s1);
-	if (n < j)
-	{
-		j = n;
-	}
-	p = malloc(j + i + 1);
-	if (p == NULL)
+	while (s1 && s1[len1])
+		len1++;
+	while (s2 && s2[len2])
+		len2++;
+
+	if (n < len2)
+		s = malloc(sizeof(char) * (len1 + n + 1));
+	else
+		s = malloc(sizeof(char) * (len1 + len2 + 1));
+
+	if (!s)
 		return (NULL);
-	for (m = 0; m < i; m++)
+
+	while (i < len1)
 	{
-		p[m] = s1[m];
+		s[i] = s1[i];
+		i++;
 	}
-	for (t = 0; t < j && s2 != '\0'; t++)
-	{
-		p[t + m] = s2[t];
-	}
-	p[t + m] = '\0';
-	return (p);
+
+	while (n < len2 && i < (len1 + n))
+		s[i++] = s2[j++];
+
+	while (n >= len2 && i < (len1 + len2))
+		s[i++] = s2[j++];
+
+	s[i] = '\0';
+
+	return (s);
 }
+
