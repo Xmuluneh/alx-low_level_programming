@@ -1,35 +1,32 @@
-#include <stdlib.h>
 #include "3-calc.h"
 
 /**
- *get_op_func - Struct op
- *@s: The operator
- *Return: the operator
+ * get_op_func - selects the correct function to perform the
+ * operation asked by the user
+ * @s: the operator as a string
+ * Return: a function pointer to the correct function that
+ * performs expected operation
  */
-
 int (*get_op_func(char *s))(int, int)
 {
-op_t ops[] = {
-{op_add, "+"},
-{op_sub, "-"},
-{op_mul, "*"},
-{op_div, "/"},
-{op_mod, "%"},
-{NULL, NULL}
-};
+	op_t ops[] = {
+		{"+", op_add},
+		{"-", op_sub},
+		{"*", op_mul},
+		{"/", op_div},
+		{"%", op_mod},
+		{NULL, NULL}
+	};
+	int i;
 
-int i;
+	i = 0;
 
-i = 0;
-
-while (i < 6)
-{
-	if (s[0] == ops[i].op[0])
+	while (ops[i].op)
 	{
-		return (ops[i].f);
+		if (strcmp(ops[i].op, s) == 0)
+			return (ops[i].f);
+		i++;
 	}
-i++;
-}
-return (0);
+	return (NULL);
 }
 
