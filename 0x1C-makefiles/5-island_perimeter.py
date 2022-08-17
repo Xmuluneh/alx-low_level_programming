@@ -13,7 +13,12 @@ def island_perimeter(grid):
 
     return per_meter
 def numberOfWater(grid, i, j):
-    """Returns the number of water neighbors a cell has in a grid."""
+    """Returns the number of water neighbors a cell has in a grid.
+       Args:
+            -grid:matrix
+            -i :row
+            -j:columns
+    """
 
     number = 0
 
